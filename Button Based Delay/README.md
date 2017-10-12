@@ -1,12 +1,5 @@
 # Button Based Delay
-Now that you have begun to familiarize yourself with the TIMER modules, why don't we make an interesting change to our code from the last lab.
-
-## Task
-Setup your microcontroller to initially blink and LED at a rate of 10Hz upon restarting or powering up. Then utilizing one of the buttons on board, a user should be able to set the delay or blinking rate of the LED by holding down a button. The duration in which the button is depressed should then become the new rate at which the LED blinks. As previously stated, you most likely will want to take advantage of the fact that TIMER modules exist and see if you can let them do a bulk of the work for you.
-
+The program works by first initializing the device for operation, initializing the LED(s), initializing the buttons. Timer0 is then set to a frequency of 10 Hz and timer1 is then set to a frequency of 1Hz. When button 1 is pressed, it triggers an interupt. The program then tracks the number of seconds (through timer 1) the button is pressed for and sets that to the LED frequency (writes to TA0CCR0).
 ### Extra Work
 ## Reset Button
-What is a piece of electronics without a reset button? Instead of relying on resetting your processor using the built in reset circuitry, why not instead use another button to reset the rate back to 10Hz.
-
-## Button Based Hertz
-Most likely using two buttons, what if instead of making a delay loop based on the time, the user could instead enter a mode where the number of times they pressed the button would become the number in Hz of the blinking rate? How do you think you would implement that with just one button?
+A reset button was created to set the frequency back to 10 Hz. This works by setting the CCR0 value to a specific value on the reset button interupt.
